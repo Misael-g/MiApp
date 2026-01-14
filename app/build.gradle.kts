@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.miapp"
+    namespace = "com.epn.miapp"
     compileSdk = 36
 
     defaultConfig {
@@ -40,7 +40,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -57,18 +56,22 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-// CameraX (alternativa moderna a Camera API)
+    // CameraX
     val camerax_version = "1.3.1"
     implementation("androidx.camera:camera-core:$camerax_version")
     implementation("androidx.camera:camera-camera2:$camerax_version")
     implementation("androidx.camera:camera-lifecycle:$camerax_version")
     implementation("androidx.camera:camera-view:$camerax_version")
 
-    // Para permisos en Compose
+    // Permisos en Compose
     implementation("com.google.accompanist:accompanist-permissions:0.34.0")
+
     // Google Play Services Location
     implementation("com.google.android.gms:play-services-location:21.1.0")
 
+    // Coil para cargar imágenes
+    implementation("io.coil-kt:coil-compose:2.5.0")
 
-
+    // Material Icons Extended
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
 }

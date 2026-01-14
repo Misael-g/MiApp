@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Permisos de ubicación -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -13,6 +14,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
 
+    <!-- Permiso de vibración -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -22,6 +26,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiApp">
+
         <!-- Declarar FileProvider para compartir archivos -->
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -33,6 +38,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <!-- Activity Principal -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -40,17 +46,25 @@
             android:theme="@style/Theme.MiApp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <!-- Activity de Registro de Accidentes -->
+        <activity
+            android:name=".AccidentRegisterActivity"
+            android:exported="false"
+            android:label="Registro de Accidentes"
+            android:theme="@style/Theme.MiApp" />
+
+        <!-- Activity de Cámara -->
         <activity
             android:name=".CameraActivity"
             android:exported="false"
             android:label="Cámara"
             android:theme="@style/Theme.MiApp" />
 
+        <!-- Activity de Ubicación -->
         <activity
             android:name=".LocationActivity"
             android:exported="false"

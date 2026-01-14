@@ -8,6 +8,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CarCrash
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -158,7 +160,46 @@ fun ComponentesBasicos(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // 8. Botón para abrir la cámara
+        // SEPARADOR
+        Divider(modifier = Modifier.padding(vertical = 8.dp))
+
+        Text(
+            text = "Funcionalidades de la App",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.padding(vertical = 8.dp)
+        )
+
+        // 8. Botón para Registro de Accidentes (PRINCIPAL)
+        Button(
+            onClick = {
+                val intent = Intent(context, AccidentRegisterActivity::class.java)
+                context.startActivity(intent)
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(64.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.error
+            )
+        ) {
+            Icon(
+                imageVector = Icons.Default.CarCrash,
+                contentDescription = null,
+                modifier = Modifier.size(32.dp)
+            )
+            Spacer(modifier = Modifier.width(12.dp))
+            Text(
+                "🚨 REGISTRAR ACCIDENTE",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold
+            )
+        }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        // 9. Botón para abrir la cámara
         Button(
             onClick = {
                 val intent = Intent(context, CameraActivity::class.java)
@@ -174,7 +215,7 @@ fun ComponentesBasicos(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        // 9. Botón para abrir ubicación
+        // 10. Botón para abrir ubicación
         Button(
             onClick = {
                 val intent = Intent(context, LocationActivity::class.java)
@@ -199,4 +240,3 @@ fun ComponentesBasicosPreview() {
         ComponentesBasicos()
     }
 }
-
